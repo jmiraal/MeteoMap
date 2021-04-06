@@ -1,0 +1,30 @@
+{% extends "master.html" %}
+{% block title %}Results{% endblock %}
+
+{% block estaciones %}
+	<div class="page-header">
+	    <h3 class="text-center">ESTACIONES</h3>
+	    {% for table in tables %}
+        {{ table|safe }}
+        {% endfor %}
+	</div>
+{% endblock %}
+	
+	
+{% block content %}
+    <div class="page-header">
+            <h1 class="text-center">{{city_name}}</h1>
+			{% if wiki_link != '' %}
+			<p style="text-align:center">
+			    <a href={{wiki_link}}>Wikipedia</a>
+			</p>
+			{% else %}
+			<p style="text-align:center">
+			    Sin información en Wikipedia
+			</p>
+			{% endif %}
+			<h3 class="text-center">MAPA</h3>
+			<div id="{{ids[0]}}"></div>
+    </div>
+
+{% endblock %}
